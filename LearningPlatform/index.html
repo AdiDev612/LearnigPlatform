@@ -153,7 +153,6 @@
         </div>
     </footer>
 
-    <!-- FILDIS Modules Modal -->
     <div id="fildisModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal('fildisModal')">&times;</span>
@@ -223,7 +222,6 @@
         </div>
     </div>
 
-    <!-- SOLSLIT Modules Modal -->
     <div id="solslitModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal('solslitModal')">&times;</span>
@@ -293,7 +291,6 @@
         </div>
     </div>
 
-    <!-- KOMFIL Modules Modal -->
     <div id="komfilModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal('komfilModal')">&times;</span>
@@ -363,7 +360,6 @@
         </div>
     </div>
 
-    <!-- Module Content Modal -->
     <div id="moduleModal" class="modal">
         <div class="modal-content">
             <button id="downloadPPT" class="download-btn" onclick="downloadPPT()">
@@ -374,7 +370,6 @@
         </div>
     </div>
 
-    <!-- Login/Signup Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content login-modal-content">
             <span class="close-button" onclick="closeModal('loginModal')">&times;</span>
@@ -404,11 +399,10 @@
             </div>
         </div>
     </div>
-
-    <!-- Move script to end of body for reliable DOM access -->
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
+        
             document.querySelector('.menu-icon').addEventListener('click', function() {
                 document.querySelector('.nav-links').classList.toggle('active');
             });
@@ -432,11 +426,11 @@
             const modal = document.getElementById('moduleModal');
             const content = document.getElementById('moduleContent');
             
-            // Extract subject and week from the path
+ 
             const pathParts = path.split('/');
-            const subject = pathParts[1]; // FILDIS, SOSLIT, or KOMFIL
+            const subject = pathParts[1]; 
             const weekFile = pathParts[pathParts.length - 1];
-            const week = weekFile.split(' ')[1].split('.')[0]; // Extract week number
+            const week = weekFile.split(' ')[1].split('.')[0]; 
             
             currentModule.subject = subject;
             currentModule.week = week;
@@ -481,12 +475,11 @@
                 link.setAttribute('target', '_blank');
                 link.setAttribute('rel', 'noopener noreferrer');
                 
-                // Add error handling
+    
                 link.onerror = function() {
                     alert('Failed to download PPT. Please try again or contact support.');
                 };
 
-                // Append to body, click, and remove
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
